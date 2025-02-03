@@ -8,6 +8,7 @@ import NavBar from "./components/NavBar";
 import Footer from "./components/Footer";
 import Home from "./views/Home";
 import Profile from "./views/Profile";
+import Dashboard from "./views/Dashboard";
 import NotFound from "./views/NotFound";
 
 
@@ -40,6 +41,7 @@ function App() {
           <Switch>
             <Route path="/" exact component={Home} />
             <Route path="/profile" component={Profile} />
+            <Route path="/dashboard" component={Dashboard} />
 
             <Route path="*" component={NotFound} />
           </Switch>

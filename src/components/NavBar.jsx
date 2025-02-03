@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { NavLink as RouterNavLink } from "react-router-dom";
+import { NavLink as RouterNavLink, Link } from "react-router-dom";
 import {
   Navbar,
   MobileNav,
@@ -10,7 +10,6 @@ import {
 } from "@material-tailwind/react";
 
 import { useAuth0 } from "@auth0/auth0-react";
-import { Link } from "react-router-dom/cjs/react-router-dom.min";
 
  
 export default function NavbarDefault() {

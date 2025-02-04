@@ -68,7 +68,7 @@ export default function NewFolder() {
             className: "min-w-0",
           }}
         />
-        <Button className="rounded-l-none"> Save </Button>
+        <Button className="rounded-l-none min-w-[70px]" size="sm" > Save </Button>
       </div>
     </div>
   );

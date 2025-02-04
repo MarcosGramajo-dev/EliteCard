@@ -32,9 +32,6 @@ export const Dashboard = () => {
           Dashboard
         </Typography>
 
-        <Typography variant="h5" className="text-left mt-2">
-          {isOpen}
-        </Typography>
         <div className="w-full flex justify-center">{renderComponent()}</div>
       </div>
       

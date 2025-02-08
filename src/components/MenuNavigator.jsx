@@ -2,7 +2,7 @@ import { Typography, Navbar, Button } from "@material-tailwind/react";
  
 export default function MenuNavigator({setIsOpen}) {
     return(
-        <Navbar className="fixed w-full h-14 left-0 bottom-0 rounded-none p-0 flex items-center justify-center">
+        <Navbar className="fixed w-full h-14 left-0 bottom-0 rounded-none p-0 flex items-center justify-center z-50">
             <div className="w-full flex justify-around items-center gap-5">
 
                 <Button

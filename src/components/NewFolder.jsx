@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   Input,
   Menu,
@@ -6,12 +6,15 @@ import {
   MenuList,
   MenuItem,
   Button,
-  Typography
 } from "@material-tailwind/react";
 
-export default function NewFolder() {
-  const [selectedIcon, setSelectedIcon] = React.useState("📁");
-  const [folderName, setFolderName] = React.useState("");
+import { withAuthenticationRequired, useAuth0 } from "@auth0/auth0-react";
+
+export function NewFolder({fetchFolders}) {
+  const [selectedIcon, setSelectedIcon] = useState("📁");
+  const [folderName, setFolderName] = useState("");
+  const { getAccessTokenSilently } = useAuth0();
+  
 
   const iconOptions = [
     { icon: "📁", label: "Folder" },
@@ -26,12 +29,50 @@ export default function NewFolder() {
     { icon: "🎓", label: "Graduation" },
     { icon: "💼", label: "Business Event" },
   ];
-  
+
+  // const handleSave = () => {
+  //   if (!folderName.trim()) {
+  //     alert("Folder name cannot be empty!");
+  //     return;
+  //   }
+  //   // addFolder(folderName, selectedIcon);
+  //   setFolderName(""); // 🔹 Limpiar el input después de agregar
+  // };
+
+  const addFolder = async (folderName, icon) => {
+    try {
+      const token = await getAccessTokenSilently({
+        authorizationParams: {
+          audience: import.meta.env.VITE_AUDIENCE, 
+          scope: "read:cards write:cards delete:cards"
+        },
+      });
+      const response = await fetch(`${import.meta.env.VITE_URL_BACKEND}/folders`, {
+        method: "POST",
+        headers: { 
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`
+        },
+        body: JSON.stringify({ name: folderName, icon }),
+      });
+
+      console.log({ name: folderName, icon });
+
+      if (!response.ok) {
+        throw new Error("Error creating folder");
+      }
+
+      const newFolder = await response.json();
+      fetchFolders();
+      // setFolders([...folders, newFolder]);
+    } catch (error) {
+      console.error("❌ Error adding folder:", error);
+    }
+  };
 
   return (
     <div className="w-full text-left">
       <div className="relative flex w-full max-w-[24rem]">
-
         <Menu placement="bottom-start">
           <MenuHandler>
             <Button
@@ -68,8 +109,19 @@ export default function NewFolder() {
             className: "min-w-0",
           }}
         />
-        <Button className="rounded-l-none min-w-[70px]" size="sm" > Save </Button>
+        <Button 
+          className="rounded-l-none min-w-[70px]" 
+          size="sm" 
+          onClick={() => addFolder(folderName, selectedIcon)}
+        >
+          Save
+        </Button>
+
       </div>
     </div>
   );
 }
+
+export default withAuthenticationRequired(NewFolder, {
+  onRedirecting: () => <Loading />,
+});

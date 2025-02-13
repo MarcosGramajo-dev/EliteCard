@@ -8,9 +8,7 @@
     "type": "section",
     "created": "2025-02-08T10:05:00Z",
     "modified": "2025-02-08T10:05:00Z",
-    "fields": [
-      { "name": "title", "type": "text", "default": "¡Te invito a mi evento! 🎉" }
-    ]
+    "fields": [{ "name": "title", "type": "text", "default": "¡Te invito a mi evento! 🎉", "placeholder": "Title" }]
   },
   {
     "id": 2,
@@ -21,9 +19,7 @@
     "type": "section",
     "created": "2025-02-08T10:05:00Z",
     "modified": "2025-02-08T10:05:00Z",
-    "fields": [
-      { "name": "eventDate", "type": "datetime", "default": "2025-03-15T20:00:00Z" }
-    ]
+    "fields": [{ "name": "eventDate", "type": "datetime", "default": "2025-03-15T20:00:00Z", "placeholder": "Event Date" }]
   },
   {
     "id": 3,
@@ -34,10 +30,7 @@
     "type": "section",
     "created": "2025-02-08T10:05:00Z",
     "modified": "2025-02-08T10:05:00Z",
-    "fields": [
-      { "name": "locationName", "type": "text", "default": "Salón Elegante, Ciudad" },
-      { "name": "mapsUrl", "type": "text", "default": "https://goo.gl/maps/example" }
-    ]
+    "fields": [{ "name": "locationName", "type": "text", "default": "Salón Elegante, Ciudad", "placeholder": "Location Name" },{ "name": "mapsUrl", "type": "text", "default": "https://goo.gl/maps/example", "placeholder": "Maps URL" }]
   },
   {
     "id": 4,
@@ -48,9 +41,7 @@
     "type": "section",
     "created": "2025-02-08T10:05:00Z",
     "modified": "2025-02-08T10:05:00Z",
-    "fields": [
-      { "name": "whatsappNumber", "type": "text", "default": "XXXXXXXXXX" }
-    ]
+    "fields": [{ "name": "whatsappNumber", "type": "text", "default": "XXXXXXXXXX", "placeholder": "WhatsApp Number" }]
   },
   {
     "id": 5,
@@ -61,9 +52,7 @@
     "type": "section",
     "created": "2025-02-08T10:05:00Z",
     "modified": "2025-02-08T10:05:00Z",
-    "fields": [
-      { "name": "dressCode", "type": "text", "default": "Ven con outfit en tonos pastel o blanco 🌸✨" }
-    ]
+    "fields": [{ "name": "dressCode", "type": "text", "default": "Ven con outfit en tonos pastel o blanco 🌸✨", "placeholder": "Dress Code" }]
   },
   {
     "id": 6,
@@ -74,8 +63,6 @@
     "type": "section",
     "created": "2025-02-08T10:05:00Z",
     "modified": "2025-02-08T10:05:00Z",
-    "fields": [
-      { "name": "footerMessage", "type": "text", "default": "¡Espero verte ahí! 💖" }
-    ]
+    "fields": [{ "name": "footerMessage", "type": "text", "default": "¡Espero verte ahí! 💖", "placeholder": "Footer Message" }]
   }
 ]

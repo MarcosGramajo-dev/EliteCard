@@ -132,26 +132,6 @@ export function MyCards() {
         </Popover>
       </div>
 
-      {/* <Card className="w-full overflow-hidden rounded-md mt-5">
-        <List  ref={container}>
-          {folders.length > 0 ? folders.map((folder) => (
-            <div key={folder.id} data-swapy-slot={folder.id}>
-              <div 
-                data-swapy-item={folder.id} 
-                className="flex w-full rounded-none py-2 px-3 text-sm font-normal text-blue-gray-700 cursor-pointer hover:bg-gray-200"
-                style={{ minHeight: "50px" }}
-                // onClick={() => setOpenFolder(openFolder === folder.id ? null : folder.id)}
-              >
-                <ListItem className="flex flex-col">
-                  <ListItemPrefix>{folder.icon}</ListItemPrefix>
-                  {folder.name}
-                </ListItem>
-              </div>
-            </div>
-          )) : <span>Folders not found <br></br> Create a new Folder</span>}
-        </List>
-      </Card> */}
-
       <Card className="w-full overflow-hidden rounded-md mt-5">
         <List ref={container}>
           {folders.length > 0 ? (

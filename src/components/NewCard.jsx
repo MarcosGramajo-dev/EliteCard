@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   Tabs,
   TabsHeader,
@@ -16,6 +16,10 @@ import PreviewCard from "./PreviewCard";
  
 export default function NewCard() {
   const [code, setCode] = useState("");
+
+  useEffect(() => {
+    console.log(code);
+  },[code]);
 
   return (
     <Tabs value="dashboard" className="w-full">
@@ -39,7 +43,7 @@ export default function NewCard() {
           <SettingCard setCode={setCode} />
         </TabPanel>
         <TabPanel value="preview">
-          <PreviewCard code={code} />
+          <PreviewCard cardId={code} />
         </TabPanel>
       </TabsBody>
     </Tabs>
